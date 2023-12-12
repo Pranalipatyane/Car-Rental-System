@@ -4,14 +4,14 @@ I developed this project using Python Django Framework and SQLlite3 Database.
 
 Create virtualenv and install Django :
 
-    pip install virtualenv                                                                                                
-    virtualenv env name
-    .\env name\scripts\activate
-    pip install django
-    django-admin startproject projectname
-    cd projectname
-    python manage.py startapp appname
-    python manage.py runserver
+    1. pip install virtualenv                                                                                                
+    2. virtualenv env name
+    3. .\env name\scripts\activate
+    4. pip install django
+    5. django-admin startproject projectname
+    6. cd projectname
+    7. python manage.py startapp appname
+    8. python manage.py runserver
 
 for migration :
 
