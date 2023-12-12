@@ -9,7 +9,7 @@ Create virtualenv and install Django :
     .\env name\scripts\activate
     pip install django
     django-admin startproject projectname
-    cd env name
+    cd projectname
     python manage.py startapp appname
     python manage.py runserver
 
