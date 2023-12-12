@@ -3,7 +3,8 @@
 I developed this project using Python Django Framework and SQLlite3 Database. 
 
 Create virtualenv and install Django :
-    pip install virtualenv
+    pip install virtualenv                                                                                                
+    
     virtualenv env name
     .\env name\scripts\activate
     pip install django
