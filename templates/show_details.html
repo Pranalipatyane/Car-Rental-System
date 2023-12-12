@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Your Booking Details </title> {% endblock title %}
+
+
+{% block css %}
+
+<style>
+
+    
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+   
+    
+body{
+    background-image: url('{% static "images/w1.jpg" %}');
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed; 
+    color: black;
+    
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
+/*
+#bgj {
+    background: linear-gradient(135deg, rgba(34, 121, 235, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+*/
+#bgj{
+    margin-bottom: 200px;
+}
+
+
+#table{
+    background-color: rgba(243, 229, 229, 0.432);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+#thead{
+    background-color: rgb(96, 192, 192);
+}
+
+#h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+</style>
+
+
+{% endblock css %}
+
+
+
+{% block body %}
+
+
+<div class="container-fluid mt-3 my-5 p-5 mx-auto shadow-lg rounded-3" id="bgj" style="background-color: rgba(243, 229, 229, 0.432);">
+    <h1 style="text-align: center;" id="booking">Your Booking Details </h1><hr>
+
+    {% if user_bookings %}
+    <table class="table border-dark" id="table">
+        <thead id="thead">
+            <tr>
+               
+                <th>Car</th>
+                <th>Pick Up Point</th>
+                <th>Destination Point</th>
+                <th>Check In Date</th>
+                <th>Check Out Date</th>
+                <th>No of Persons</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th>Total Rent</th>
+                <th>Cancel</th>
+                <th>Update Details</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in user_bookings %}
+            <tr>
+                
+                <td>{{ booking.addcar.car_name }}</td>
+                <td>{{ booking.pick_up_point }}</td>
+                <td>{{ booking.destination_point }}</td>
+                <td>{{ booking.check_in_date }}</td>
+                <td>{{ booking.check_out_date }}</td>
+                <td>{{ booking.no_of_persons }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.user }}</td>
+                <td>{{ booking.email }}</td>
+                <td>{{ booking.contact }}</td>
+                <td>{{ booking.is_confirmed }}</td>
+                <td>₹{{ booking.totalRent }}</td>
+
+                <td><a href="{% url 'your_booking' booking.id %}"
+                    onclick="return confirm('Are you sure you want to cancel {{booking.addcar.car_name}}?')"><img src="{% static 'icons/delete.png' %}" alt="" height="30"></a>
+                </td>
+
+                <td>
+                    <a href="{% url 'edit_booking' booking.id %}" class="btn btn-success"
+                    onclick="return confirm('Are you sure you want to Update {{booking.addcar.car_name}}?')">Update</a>
+                </td>
+
+                
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h2 id="h2">No bookings found </h2>
+    {% endif %}
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+
+
+{% endblock body %}
+
+

@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Services </title> {% endblock %}
+
+{% block css %}
+
+<style>
+/*
+    h3{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    b,h1{
+        color:chocolate;
+    }
+    p,h4{
+        color: #000;
+    }*/
+
+    body{
+        background-image: url('{% static "images/w1.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(221, 107, 107, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+       
+    }
+   
+
+
+/* cards */
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  box-shadow: inset 0 0 90px rgba(186, 214, 221, 0.6),
+					0 0 80px rgba(163, 152, 152, 0.2);
+	background: rgba(206, 198, 198, 0.4);
+
+
+
+
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.content .heading {
+  font-weight: 700;
+  font-size: 32px;
+ 
+}
+
+.content .para {
+  line-height: 1.5;
+  font-weight: bolder;
+ 
+  
+}
+.card:hover::before {
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container shadow-lg mt-3 text-center">
+    <h1><img src="{% static 'images/services.png' %}" alt="">  Services</h1>
+    <h4>Exclusive Holidays For Any Travelers</h4>
+</div>
+
+<br><br>
+<!--
+<div class="container mt-3"  style="display: flex; height: 100px;">
+    <div style="width: 50%;">
+        <h3><img src="{% static 'images/car book.png' %}" alt="" height="100" width="100"> <b>CAB BOOKING</b></h3>
+        <p>Easy Cab Booking available with online payment methods</p>
+
+        <h3><img src="{% static 'images/airplane.png' %}" alt="" height="100" width="100"> <b>AIRPORT PICKUP-DROP</b></h3>
+        <p>Corporate and Personal pune-mumbai-pune Airport pickup-drop Available</p>
+
+        <h3><img src="{% static 'images/drive.png' %}" alt="" height="100" width="100"> <b>SAFE TRAVELLING</b></h3>
+        <p>Fully sanitize car, Free Mask and Water bottles for passangers ( 200 ml each )</p>
+
+    </div>
+
+    <div style="flex-grow: 1;">
+        <h3><img src="{% static 'images/staff.png' %}" alt="" height="100" width="100"> <b>WELL TRAINED DRIVER</b></h3>
+        <p>Driver with face mask and hand gloves, Isolated Driver and Co-passenger seats</p>
+
+        <h3><img src="{% static 'images/ad.png' %}" alt="" height="100" width="100"> <b>AUDIO CHOICE</b></h3>
+        <p>Audio system with Bluetooth connectivity to listen your favorite Songs</p>
+
+        <h3><img src="{% static 'images/flates.png' %}" alt="" height="100" width="100"> <b>FLEETS OPTION</b></h3>
+        <p>We have All types of cabs segments available</p>
+
+    </div>
+</div>
+-->
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/car book.png' %}" alt="" height="50" width="40"> 24/7 Booking </p>
+            <p class="para">
+                We provide 24 hours customer friendly service 365 days a year</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/flates.png' %}" alt="" height="50" width="50"> New Fleet </p>
+            <p class="para">
+                A large and new fleet of AC and non AC
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/staff-s.png' %}" alt="" height="50" width="50"> Staff</p>
+            <p class="para">
+              Well behaved and Courteous drivers with helping staff</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/pickup.png' %}" alt="" height="50" width="50"> Pickup-Drop </p>
+            <p class="para">
+              Corporate and Personal pickup-drop Available </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/staff.png' %}" alt="" height="50" width="50">Trained Drivers</p>
+            <p class="para">
+                We have well experienced drivers who knows all routes</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/qs.png' %}" alt="" height="50" width="40"> Quality Service</p>
+            <p class="para">
+                We provide quality service with clean & refreshed cabs</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/drive.png' %}" alt="" height="50" width="40"> Safe Travelling</p>
+            <p class="para">
+              Fully sanitize car, Free Mask and Water bottles for passangers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="content">
+            <p class="heading"><img src="{% static 'images/ad.png' %}" alt="" height="50" width="40">Audio Choice</p>
+            <p class="para">
+              Audio system with Bluetooth connectivity to listen your favorite Songs  <br><br>
+            </p> 
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+<br><br><br><br><br><br><br>
+
+{% endblock %}
+
+

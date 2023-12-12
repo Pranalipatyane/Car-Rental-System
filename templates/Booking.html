@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title>Car Booking Form</title>{% endblock title %}
+
+{% block css %}
+
+<style>
+  body {
+    background-image: url('{% static "images/w1.jpg" %}');
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed; 
+  }
+  #Book4{
+    color: #000;
+    background: linear-gradient(135deg, rgba(194, 153, 153, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+
+    
+  
+  #h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000;
+    text-align: center;
+  }
+
+   
+  #h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000;
+    text-align: center;
+  }
+
+</style>
+
+{% endblock css %}
+
+
+{% block body %}
+
+
+<div class="container mt-5" id="Book4">
+   <h1 id="h1">Book Your Cab Now !</h1> 
+</div>
+&nbsp;
+  
+<div class="container" style="display: flex;" id="Book4">
+
+  <div class="container card col-6 mt-5 card mx-auto p-4 border-dark mb-5" id="Book4" style="background-color: rgba(228, 228, 228, 0.432);">
+
+    <h2 class="mb-3" id="h2"> <b> Car Type : {{ car.car_name }}</b></h2> 
+    <hr>
+ 
+  <center>
+    <form action="" method="POST">
+        
+      {% csrf_token %}
+
+      <table>
+        <tr>
+          {{ form.as_table }}
+        </tr>
+      </table>
+      <br>
+  
+      <b> <h3> <span id="total-rent"></span>  </h3></b> <br>
+
+      <button type="submit" class="btn btn-success">Book Now</button>
+  
+    </form>
+  </center>
+  </div>
+</div>
+
+
+<br><br>
+
+
+{% endblock body %}
+
+
+
+{% block js %}
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+        var noOfPersonsField = document.getElementById('id_no_of_persons');
+
+        noOfPersonsField.addEventListener('input', function () {
+            var noOfPersons = parseInt(noOfPersonsField.value);
+
+            if (noOfPersons > 15) {
+                alert('Maximum 15 persons are allowed.');
+                noOfPersonsField.value = '';  
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+            const checkInDateInput = document.querySelector('#id_check_in_date');
+            const checkOutDateInput = document.querySelector('#id_check_out_date');
+            const numOfPersonsInput = document.querySelector('#id_no_of_persons');
+            const totalRentElement = document.querySelector('#total-rent');
+
+            const calculateTotalRent = () => {
+                const checkInDate = new Date(checkInDateInput.value);
+                const checkOutDate = new Date(checkOutDateInput.value);
+                const numOfPersons = parseInt(numOfPersonsInput.value);
+                
+                // Calculate the number of days between check-in and check-out dates
+                const numberOfDays = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+
+                // Assuming car rent is ₹300 per day per person
+                const carRentPerDayPerPerson = 400;
+                
+                // Calculate total rent based on the number of days and persons
+                let totalRent = numberOfDays * numOfPersons * carRentPerDayPerPerson;
+
+                // Check if totalRent is a valid number, if not, set it to 0
+                totalRent = isNaN(totalRent) ? 0 : totalRent;
+                
+                // Update the total rent element
+                totalRentElement.textContent = `Total Rent: ₹${totalRent}`;
+            };
+
+            // Add event listeners to form fields
+            checkInDateInput.addEventListener('change', calculateTotalRent);
+            checkOutDateInput.addEventListener('change', calculateTotalRent);
+            numOfPersonsInput.addEventListener('input', calculateTotalRent);
+
+             // Calculate total rent initially when the page loads (optional)
+             calculateTotalRent();
+        });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+  
+document.addEventListener('DOMContentLoaded', function() {
+    const checkInDateInput = document.querySelector('#id_check_in_date');
+    const checkOutDateInput = document.querySelector('#id_check_out_date');
+    const numOfPersonsInput = document.querySelector('#id_no_of_persons');
+    const totalRentElement = document.querySelector('#total-rent');
+
+    const calculateTotalRent = () => {
+        const checkInDate = new Date(checkInDateInput.value);
+        const checkOutDate = new Date(checkOutDateInput.value);
+        const numOfPersons = parseInt(numOfPersonsInput.value);
+        
+        // Calculate the number of days between check-in and check-out dates
+        const numberOfDays = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+
+        // Assuming car rent is ₹300 per day per person
+        const carRentPerDayPerPerson = 400;
+        
+        // Calculate total rent based on the number of days and persons
+        const totalRent = numberOfDays * numOfPersons * carRentPerDayPerPerson;
+        
+        // Update the total rent element
+        totalRentElement.textContent = `Total Rent: ₹${totalRent}`;
+    };
+
+    // Add event listeners to form fields
+    checkInDateInput.addEventListener('change', calculateTotalRent);
+    checkOutDateInput.addEventListener('change', calculateTotalRent);
+    numOfPersonsInput.addEventListener('input', calculateTotalRent);
+
+     // Calculate total rent initially when the page loads (optional)
+     calculateTotalRent();
+});
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Show Booking Details </title> {% endblock title %}
+
+{% block css %}
+
+<style>
+body{
+        background-image: url('{% static "images/w1.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(224, 63, 63, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+       
+    }
+ /*
+    h1 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+        color: black;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    th {
+        background-color: #91665b;
+        color: white;
+    }
+
+    th,
+    td {
+        border: 2px solid #ddd;
+    }
+
+
+    .container{
+        margin-bottom: 300px;
+    }
+
+
+*/
+
+
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+#Bookingdata{
+  background-color: rgba(228, 228, 228, 0.432); 
+  /* height: 500px; */
+  display: flex;
+  background-size: cover;
+  
+}
+
+#table{
+    background-color: rgba(243, 229, 229, 0.432);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#sdata{
+  background-color: rgb(147, 243, 115);
+}
+#sdata:hover{
+  background-color: rgb(198, 231, 213);
+}
+
+.trdata:hover{
+  background-color: rgb(135, 211, 211);
+}
+  
+/*
+#Bookingdata {
+    background: linear-gradient(135deg, rgba(221, 224, 228, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+   }
+
+*/
+
+    
+</style>
+
+{% endblock css %}
+
+
+
+{% block body %}
+
+<br>
+
+<h1 style="text-align: center; color: black;" id="booking">Confirmed Car Booking Details </h1><hr>
+
+<div class="container-fluid" id="Bookingdata"> 
+
+  <div class="col mx-auto sec-col" id="bgj"> <br>
+      
+      {% if form %}
+      <table class="table border-dark shadow-lg rounded-3" id="table">
+    
+          <thead >
+          <tr >
+            
+              <th scope="col" id="sdata"> Car </th>
+              <th scope="col" id="sdata"> Pick Up Point </th>
+              <th scope="col" id="sdata"> Destination Point </th>
+              <th scope="col" id="sdata"> Check In Date </th>
+              <th scope="col" id="sdata"> Chech Out Date </th>
+              <th scope="col" id="sdata"> No of Persons </th>
+              <th scope="col" id="sdata"> Name </th>
+              <th scope="col" id="sdata"> Username </th>
+              <th scope="col" id="sdata"> Email </th>
+              <th scope="col" id="sdata"> Contact </th>
+              <th scope="col" id="sdata"> Status </th> 
+              <th scope="col" id="sdata"> Total </th>
+              <th scope="col" id="sdata"> Delete </th>
+              <th scope="col" id="sdata"> Cancel Booking </th>
+              
+          </tr>
+          
+          </thead>
+      <tbody>
+           {% for i in m %}
+          <tr >
+              <td class="trdata"><b>{{i.addcar}}</b></td>
+              <td class="trdata"><b>{{i.pick_up_point}}</b></td>
+              <td class="trdata"><b>{{i.destination_point}}</b></td>
+              <td class="trdata"><b>{{i.check_in_date}}</b></td>
+              <td class="trdata"><b>{{i.check_out_date}}</b></td>
+              <td class="trdata"><b>{{i.no_of_persons}}</b></td>
+              <td class="trdata"><b>{{i.name}}</b></td>
+              <td class="trdata"><b>{{i.user}}</b></td>
+              <td class="trdata"><b>{{i.email}}</b></td>
+              <td class="trdata"><b>{{i.contact}}</b></td>
+              <td class="trdata"><b>{{i.is_confirmed}}</b></td>
+              <td class="trdata"><b> ₹{{ i.totalRent }}</b></td>
+
+              <td><a href="{% url 'delete_booking' i.id %}"
+                onclick="return confirm('Are you sure you want to delete {{i.addcar}}?')"><img src="{% static 'icons/delete.png' %}" alt="" height="30"></a>
+              </td>
+
+              <td><a href="{% url 'cancel_booking' i.id %}" class="btn btn-dark"
+                onclick="return confirm('Are you sure you want to cancel {{i.addcar}} car booking?')">Cancel Booking</a>
+              </td>
+
+             
+             
+          </tr>
+          {% endfor %}
+      </tbody>
+    {% else %}
+    
+    {% endif %}
+    
+      </table>
+    
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
+
+
+{% block js %}
+
+<script>
+
+
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container-fluid shadow-lg rounded-3 "> 
+
+    <h1 class="mt-4">Confirmed Car Booking Details</h1>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Car Type</th>
+                <th>Pick Up Point</th>
+                <th>Destination Point</th>
+                <th>Check In Date</th>
+                <th>Check Out Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Delete</th>
+                <th>Cancel</th>
+            </tr>
+        </thead> 
+
+        <tbody>
+            {% for booking in confirmed_bookings %}
+            <tr>
+                <td>{{ booking.car_type }}</td>
+                <td>{{ booking.pick_up_point }}</td>
+                <td>{{ booking.destination_point }}</td>
+                <td>{{ booking.check_in_date }}</td>
+                <td>{{ booking.check_out_date }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.email }}</td>
+                <td>{{ booking.contact }}</td>
+
+                <td><a href="{% url 'delete_booking' booking.id %}"
+                    onclick="return confirm('Are you sure you want to delete {{booking.car_type }}?')"><img src="{% static 'icons/delete.png' %}" alt="" height="30"></a>
+                </td>
+                
+                <td><a href="{% url 'cancel_booking' booking.id %}" class="btn btn-dark"
+                    onclick="return confirm('Are you sure you want to cancel {{booking.car_type }} car booking?')">Cancel Booking</a>
+                </td>
+
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No confirmed bookings available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+-->

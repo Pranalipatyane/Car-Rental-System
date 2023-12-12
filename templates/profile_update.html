@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Profile Update </title> {% endblock title %}
+
+
+{% block css %}
+
+<style>
+
+  body{
+        background-image: url('{% static "images/w1.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(224, 63, 63, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+
+    #h1{
+      color: black;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    #up{
+      height: 70%;
+      color: white;
+      
+
+      background: linear-gradient(135deg, rgba(7, 7, 7, 0.1), rgba(3, 3, 3, 0));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border:1px solid rgba(224, 63, 63, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(212, 156, 156, 0.37);
+        
+    }
+
+   
+
+</style>
+
+{% endblock css %}
+
+
+{% block body %}
+<br><br>
+
+<div class="container" style="width: max-content;" id="h1">
+    <center> <h1> Update Your Profile </h1> </center>  <hr>
+</div>
+ 
+<br>
+
+<div class="container col-6 card mx-auto p-4 shadow-lg rounded-3" id="up" style="background-color: rgba(12, 11, 11, 0.432);"> <br>
+
+  <center>
+    <form action="" method="POST" style="margin-left: 60px; margin-right: 90px; font-size: large;">
+        {% csrf_token %}
+       
+        <table>
+        <tr>
+            {{form.as_table}}
+        </tr>
+        </table>
+        
+        <br>
+   
+    <button type="submit" class="save btn btn-success">Update Details</button>  &nbsp;
+    <button type="submit" class="save btn btn-danger"><a href="{% url 'customer_homepage' %}"></a> Back</button>  &nbsp;
+
+  </center>
+    
+  
+    
+    </form>
+  </div>
+
+<br><br><br><br><br><br><br><br>
+
+{% endblock body %}
+
+
+

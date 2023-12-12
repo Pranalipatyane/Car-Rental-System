@@ -1,0 +1,185 @@
+<!-- booking_confirmation.html -->
+
+{% extends 'base.html' %}
+{% block title %} <title> Booking Confirmation </title> {% endblock %}
+
+{% load static %}
+
+{% block css %}
+
+<style>
+
+    body{
+        background-image: url('{% static "images/blur.avif" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+        
+    }
+
+    #container{
+        margin-top: 11px;
+        margin-bottom: 100px;
+        font-size: x-large;
+        font-family: 'Times New Roman', Times, serif;
+        
+    }
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+        color: white;
+    }
+
+   
+
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<!--
+
+<div class="container shadow-lg rounded-3 bg-white"> <br>
+    <h1>Booking Confirmation</h1> <hr>
+    <center> <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Thank you for booking with us! Your booking has been confirmed.</p> </center>
+
+    <div class="row">
+
+        <div class="col sm-4" style="margin-left: 100px;">
+            
+            <p>Details : </p>
+            <ul>
+                <li><strong>Name : </strong> {{ booking_instance.name }}</li>
+                <li><strong>Contact: </strong> {{ booking_instance.contact }}</li>
+
+                <br>
+
+                <li><strong>Car Type : </strong> {{ booking_instance.car_type }}</li>
+                <li><strong>Pick Up Point : </strong> {{ booking_instance.pick_up_point }}</li>
+                <li><strong>Destination Point : </strong> {{ booking_instance.destination_point }}</li>
+                <li><strong>Check In Date : </strong> {{ booking_instance.check_in_date }}</li>
+                <li><strong>Check Out Date : </strong> {{ booking_instance.check_out_date }}</li>
+                <li>
+                    <strong>Total : </strong> {{ total_car_rent }}
+                </li>
+            </ul>
+        
+        </div>
+
+        <div class="col sm-4" style="margin-right: 50px;">
+            <img src="{% static 'images/TATA ZEST.jpg' %}" alt="">
+        </div>
+
+    </div>
+
+</div>
+
+-->
+
+
+
+<div class="container shadow-lg rounded-3 bg-black" id="container">
+    <h1>Booking Confirmation</h1> <hr>
+    <center> <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: white;">Thank you for booking with us! Your booking has been confirmed.</p> </center>
+
+    <div class="row bg-white">
+
+        <div class="col sm-4 mt-3 mb-3" style="margin-left: 150px;">
+            
+            <p>Details : </p>
+            <ul>
+                
+                <li><strong>Name : </strong> {{ booking.name }}</li>
+                <li><strong>Contact: </strong> {{ booking.contact }}</li>
+                <li><strong>Email: </strong> {{ booking.email }}</li>
+
+                <br>
+
+                <li><strong>Car Type : </strong> {{ booking.addcar }}</li>
+                <li><strong>Pick Up Point : </strong> {{ booking.pick_up_point }}</li>
+                <li><strong>Destination Point : </strong> {{ booking.destination_point }}</li>
+                <li><strong>Check In Date : </strong> {{ booking.check_in_date }}</li>
+                <li><strong>Check Out Date : </strong> {{ booking.check_out_date }}</li>
+                <li><strong>No Of Persons : </strong> {{ booking.no_of_persons }}</li>
+                
+                <li>
+                    <strong>Total : </strong>  ₹{{ totalRent }}
+                </li>
+            
+            </ul>
+        
+        </div>
+
+        <div class="col sm-4" style="margin-right: 100px;">
+            <img src="{% static 'images/TATA ZEST.jpg' %}" alt="">
+        </div>
+
+    </div> 
+
+    <center>
+    <div class="button">
+        <a href="{% url 'customer_homepage' %}" class="btn btn-primary">Back</a>
+    </div> </center>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+    <p>Thank you for booking with us! Your booking has been confirmed.</p>
+    <p>Details:</p>
+    <ul>
+        <li><strong>Car Type:</strong> {{ booking_instance.car_type }}</li>
+        <li><strong>Pick Up Point:</strong> {{ booking_instance.pick_up_point }}</li>
+        <li><strong>Destination Point:</strong> {{ booking_instance.destination_point }}</li>
+        <li><strong>Check In Date:</strong> {{ booking_instance.check_in_date }}</li>
+        <li><strong>Check Out Date:</strong> {{ booking_instance.check_out_date }}</li>
+    </ul>
+</body>
+</html>
+-->

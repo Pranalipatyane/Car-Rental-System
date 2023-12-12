@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Admin Login </title>{% endblock title %}
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+
+{% block css %}
+
+<style media="screen">
+ /*
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+body{
+        background-image: url('{% static "images/service-bg.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+
+    }
+
+  #al{
+    margin-top: 100px;
+    margin-bottom: 150px;
+    color: #fff;
+    
+  }
+
+  .card-body{
+    background-color: #000;
+    margin-left: 350px;
+    margin-right: 350px;
+    box-shadow: inset 0 0 90px rgba(219, 197, 197, 0.6),
+					0 0 80px rgba(0,0,0,0.2);
+	  background: rgba(66, 51, 51, 0.4);
+  }
+*/
+
+body{
+    background-image: url('{% static "images/w1.jpg" %}');
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);  
+
+}
+
+#login{
+  margin-bottom: 800px;
+}
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.background{
+    width: 430px;
+    height: 610px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 34%;
+
+    box-shadow: inset 0 0 90px rgba(0,0,0,0.6),
+					0 0 80px rgba(0,0,0,0.2);
+	  background: rgba(0,0,0,0.4);
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+    
+} 
+
+form{
+  
+    height: 580px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 34%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h1{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#toggle-password{
+    margin-left: 210px;
+    color: white;
+    font-size: small;
+}
+
+
+
+
+
+</style>
+
+{% endblock css%}
+
+
+{% block body %}
+ 
+
+<div class="container" id="login">
+
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form method="POST" action="" style="background-color: rgba(131, 126, 126, 0.432);">
+    <h1> Admin Login </h1> <hr>
+
+    {% csrf_token %}
+        {% if messages %}
+        {{message.tags}}
+        <div class="alert alert-primary" role="alert">
+          {% for message in messages %}
+          {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {{f.as_p}}
+
+
+        <div class="input-group mb-4">
+          <div class="input-group-append">
+              <span class="input-group" id="toggle-password" style="cursor: pointer;">
+                  <i class="bi bi-eye"> Show Password </i>
+              </span>
+          </div>
+        </div>
+
+      <br>
+      <div class="form-check d-flex justify-content-center mb-4">
+        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+        <label class="form-check-label" for="form2Example33" style="margin-top: 1px;" >
+          Remeber Me
+        </label>
+      </div>
+      
+    <button type="submit" class="save btn btn-primary" id="button">Log In</button>
+   
+  </form>
+</div>
+
+
+{% endblock body %}
+
+{% block js %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const passwordInput = document.getElementById("id_password");
+      const togglePassword = document.getElementById("toggle-password");
+
+      togglePassword.addEventListener("click", function () {
+          const type = passwordInput.type === "password" ? "text" : "password";
+          passwordInput.type = type;
+      });
+  });
+</script>
+   
+{% endblock js %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container rounded-3">
+
+  
+  
+  <div class="card-body bg px-5 py-3 shadow-lg rounded-3" id="al">
+    <form method="POST" action="">
+      <center> <h1> <b> Admin Login </b></h1> </center>
+      <hr>
+      
+
+      {% csrf_token %}
+      {% if messages %}
+      {{message.tags}}
+      <div class="alert alert-primary" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+          {{f.as_p}}
+          
+
+     
+      <div class="form-check d-flex justify-content-center mb-4">
+        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+        <label class="form-check-label" for="form2Example33">
+          Remeber Me
+        </label>
+      </div>
+
+
+    
+      <center>
+      <button type="submit" class="btn btn-primary btn-block mb-4">Login</button> &nbsp;
+      <button type="reset" class="btn btn-danger btn-block mb-4">clear</button>
+    </center>
+    
+    </form>
+  </div>
+</div>
+
+-->

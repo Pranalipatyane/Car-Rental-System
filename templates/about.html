@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> About Us </title> {% endblock %}
+
+{% block css %}
+
+<style>
+   
+ 
+   body{
+        background-image: url('{% static "images/bg-s.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(221, 107, 107, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+       
+    }
+
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #000;
+    }
+
+   strong{
+        color:darkmagenta;
+    }
+    /*
+    .container{
+        box-shadow: inset 0 0 90px rgba(0,0,0,0.6),
+					0 0 80px rgba(0,0,0,0.2);
+	    background: rgba(0,0,0,0.4);
+    }
+    */
+    
+    #about {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    
+    p,li{
+        color: #000;
+        font-size: large;
+        
+    }
+
+   
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container shadow-lg mt-3 text-center"  id="about">
+    <h1>About Ace Cabs</h1>
+</div>
+
+<br> 
+
+<div class="container shadow-lg mt-3"  id="about" style="width: max-content; background-color: rgba(228, 228, 228, 0.432);">
+    
+    <p><strong>TRAVEL SERVICES OF THE HIGHEST QUALITY</strong></p>
+    <p>Ace Cabs provide cab rental services to all major cities and anywhere in Maharashtra at very economical and attractive rates.</p>
+
+    <p><strong>LOCAL TRIPS:</strong></p>
+    <p>We provide quick and prompt cab facility within the Mumbai city. We offer sightseeing across the city and nearby tourist spots. 
+        <br> Cabsrender Drop or pick up cab service to Mumbai International airport.</p>
+
+    <p><strong>PROFESSIONAL DRIVERS:</strong></p>
+    <p>Experienced drivers of Ace Cabs ensure and assure your safety and comfort during the journey. They are well mannered and aware of routes of your journey. 
+       <br> To pick you, they will punctually reach at your doorstep. Along with you, they will reach the destination on time safely. 
+        <br>  Our skilled driver and tidy and sanitized vehicles ensure that your holiday full of joy and enthusiasm. Have memorable and fun filled tours.</p>
+
+    <p><strong>MULTIPLE OPTIONS:</strong></p>
+    <p>Our fleet includes multiple options in A/C and no A/C cars. We provide choices such as Indigo, Swift Desire, Etios, Innova, Xylo and Tavera. 
+        <br>  Select according to your requirement. Ace Cabs guarantees you the best prices.</p>
+
+    <p><strong>WHY CHOOSE ACE CABS?</strong></p>
+    <p>
+        <ul>
+            <li>We have Good connectivity in all major cities</li>
+            <li>We guarantee about the security and safety of customers.</li>
+            <li>Fully Sanitized car, driver with Mask and Hand gloves</li>
+            <li>Isolated driver and co-passenger seats</li>
+            <li>Ace Cabs provides Free Masks for passengers</li>
+            <li>We offer wide range of vehicle as per the requirement and comfort within affordable budget.</li>
+            <li>We ensure total customer satisfaction</li>
+            <li>We provide Instant Booking confirmation</li>
+            <li>We follow Transparent Billing system without any hidden or extra charges</li>
+            <li>We offer Door step Pickup and Drop facility</li>
+            <li>We have Customer friendly cancellation policies & procedures</li>
+            <li>We provide Car/ Cab/ Bus/ Mini-Bus & Tempo to suit the size of the group</li>
+        </ul>
+    </p> <br>
+
+   
+        <p><strong>WE ARE BEST CAR RENTAL SERVICE OF CAPITAL CITY MUMBAI.</strong></p>
+
+
+    
+</div> 
+
+&nbsp; &nbsp;
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %} 

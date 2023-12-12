@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title>Terms And Conditions</title> {% endblock %}
+
+{% block css %}
+
+<style>
+
+    
+body{
+        background-image: url('{% static "images/bg-s.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(221, 107, 107, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+       
+    }
+   
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #000;
+    }
+
+   strong{
+        color:darkmagenta;
+    }
+
+    #terms {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    p,li{
+        color: #000;
+        font-size: large;
+        
+        
+    }
+
+   
+  
+    
+   
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container shadow-lg mt-3 text-center" id="terms">
+    <h1>Terms And Conditions</h1>
+</div>
+
+<br>
+
+<div class="container shadow-lg mt-3" id="terms" style="width: max-content; background-color: rgba(228, 228, 228, 0.432);">
+    <p><strong>GENERAL POLICY:</strong></p>
+    <p>1. Negotiated final charges with Ace cabs are exclusive of service taxes</p>
+    <p>2. The start and end point of the Car rental office will be considered for calculating the rental amount is as follows:</p>
+    <p>
+        <ul>
+            <li>Starting Point and Time: from Ace cabs office, As soon it leaves to reach the customer pickup location, this is considered to be the start time and location</li>
+            <li>Finish Point and Time: After getting the Client back to his dropping point, as sson the driver reaches back the Ace cabs office, this is considered  
+                <br> the finishing point and time.</li>
+            <li>Road Toll charges, Parking Charges and State Permit will be charged extra at actuals.</li>
+        </ul>
+    </p>
+
+    <p>3. Rents are calculations will be from the trip start time.</p>
+    <p>
+        <ul>
+            <li>For one-day trips, After 24 hours from the trip start time, 25% will be charged extra on the price for each extra kilometer than permitted limit.</li>
+            <li>Night charges are applicable if the journey extends after night 12:00 midnight, extra day will be counted for calculation, irrespective of the Start time.</li>
+        </ul>
+    </p>
+
+    <p>4. The package contains only travelling cost of the vehicle. All other, toll charges, parking charges, your food, accommodation, sightseeing, entrance 
+        <br> charges and guide servicesetc. are not considered.</p>
+    <p>5. Actual Distance travelled will be taken for final rate calculation.</p>
+    <p>6. Smoking, Consumption of alcoholic drinks and other narcotic substances in the Vehicle is strictly prohibited as per government norms and rules</p>
+
+<!--
+    <p><strong>PAYMENT POLICY:</strong></p>
+    <p>1. The clients can opt anyone from various choices for Payment during booking i.e. thru Cash, Demand Draft, Cheque and Online transfer-thru Credit Card / 
+        <br> Debit Card / Net Banking.</p>
+    <p>2. Payment can be done in personal or thru online transfer& on self-behalf or for sponsoring others.</p>
+
+
+    <p><strong>CANCELLATION POLICY:</strong></p>
+    <p>1. In case of cancellation of your tour is done by us, actual amountpaid willbe refundedto the client.</p>
+    <p>2. Cancellation can be done 36 hour before journey, without any charges for all services. In case cancellation or changes in the trip is done within 
+        <br> 36 hours of the pick-up time, then following rules will apply:</p>
+    <p>3. Multi-Day Journey: The first day charges would be deducted from the total amount and refund will be issued to the client</p>
+    <p>4. Same Day Journey: No Refund will be provided.</p>
+    <p>5. Airport Pickup or/and Drop: No Charges applicable if Cancellation done at least 6 hours prior of pickup time.</p>
+    
+    <p><strong>REFUND POLICY:</strong></p>
+    <p>1. In case of cancellation of your tour by us, you will get the refund of actual amount paid by you.</p>
+    <p>2. If you cancel the tour, the cancellation charges will be applicable as per the above mentioned cancellation policy of Ace cabs</p>
+    <p>3. If eligible for refunds based on the “Cancellation & Refund Policy” as mentioned above, then the refund will be given back to you in 5-7 working days.</p>
+    -->
+</div> 
+
+&nbsp; &nbsp;
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %} 

@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Book Car </title> {% endblock %}
+
+
+
+{% block css %}
+
+<style>
+
+    body{
+        background-image: url('{% static "images/b4.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+        color: #000;
+        
+    }
+
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+   
+    .container{
+        color: black;
+        float: right;
+        font-size:large;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    table{
+        margin-left: 80px;
+       
+    }
+
+    .form-group{
+        width: 20%;
+        
+    }
+
+
+
+
+
+
+
+
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="container-fluid shadow-lg mt-1 text-center">
+   <br> <h1>Book Your Cab Now !</h1> <br>
+</div>
+<br>
+
+<div class="container">
+    
+
+    <form method="post">
+        {% csrf_token %}
+
+        <center>
+        <table>
+            <tr>
+                {{form.as_table}}
+            </tr>
+        </table> <br>
+
+        
+        <div class="form-group">
+
+            <b> <label for="car-rent">Car Rent</label> </b>
+            <input type="text" class="form-control" id="car-rent" readonly>
+
+        </div>
+    
+        
+        <br>
+
+        <button type="submit" class="save btn btn-primary">Book</button>
+        <button type="reset" class="save btn btn-primary">Reset</button>
+    </center>
+    </form>
+
+    <br>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+{% endblock %}
+
+
+{% block js %}
+
+
+<script>
+    
+    // Function to calculate and fill car rent based on selected car type and number of days
+    function calculateCarRent() {
+        var carType = document.getElementById('id_car_type').value;
+        var checkInDate = new Date(document.getElementById('id_check_in_date').value);
+        var checkOutDate = new Date(document.getElementById('id_check_out_date').value);
+        var currentDate = new Date();  // Get the current date
+
+        // Check if the selected dates are valid (not in the past)
+        if (checkInDate < currentDate || checkOutDate < currentDate) {
+            alert('Invalid dates. Please select future dates.');
+            document.getElementById('id_check_in_date').value = '';  // Reset check-in date
+            document.getElementById('id_check_out_date').value = '';  // Reset check-out date
+            document.getElementById('car-rent').value = '';  // Reset car rent field
+            return;
+        }
+
+        // Calculate number of days between check-in and check-out dates
+        var numDays = Math.ceil((checkOutDate - checkInDate) / (1000 * 100 * 100 * 24));
+
+        // Perform calculations based on car type (adjust these values according to your needs)
+        var carRent;
+        switch (carType) {
+            case 'Tata Zest':
+                carRent = 1500; // Sample car rent per day for Tata Zest
+                break;
+            case 'Maruti Dzire':
+                carRent = 2000; // Sample car rent per day for Maruti Dzire
+                break;
+            // Add more cases for other car types as needed
+            default:
+                carRent = 1000; // Default value for unknown car type
+        }
+
+        // Calculate total car rent
+        var totalCarRent = numDays * carRent;
+
+        // Fill the car rent field with the calculated value
+        document.getElementById('car-rent').value = totalCarRent;
+
+        // Return the calculated car rent value
+        return totalCarRent;
+    }
+
+    // Attach the calculateCarRent function to input change events
+    document.getElementById('id_car_type').addEventListener('change', calculateCarRent);
+    document.getElementById('id_check_in_date').addEventListener('change', calculateCarRent);
+    document.getElementById('id_check_out_date').addEventListener('change', calculateCarRent);
+
+
+</script>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

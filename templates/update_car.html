@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title>Update Car Details</title> {% endblock %}
+
+{% block css %}
+
+<style>
+
+    h1{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    body{
+        background-image: url('{% static "images/w1.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+        color:#000;
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(224, 63, 63, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    }
+
+
+    #container{
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    #container {
+        
+        background: linear-gradient(135deg, rgba(228, 228, 228, 0.432), rgba(255, 255, 255, 0)); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(224, 63, 63, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+   }
+
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container bg-transparent rounded-3" id="container" style="font-size: x-large; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; width: max-content;"> <br>
+    <center> <h1>Update Car Details</h1> </center>
+    <hr>
+    <center> 
+    <form action="" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <table>
+            <tr>
+                {{form.as_table}}
+            </tr>
+        </table>
+
+        <br>
+
+        <button type="submit" class="btn btn-outline-primary ">Update Details</button> 
+
+        <button type="back" class="btn btn-outline-danger"><a href="{% url 'all_cars' %}"></a>Back</button>
+    </form>
+    </center> 
+</div>
+
+
+
+{% endblock %}
+
+
+{% block js %}
+{% endblock %}
+

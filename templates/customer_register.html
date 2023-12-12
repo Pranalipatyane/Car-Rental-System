@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Customer Register </title> {% endblock title %}
+
+
+{% block css %}
+
+<style>
+
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+
+
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  body{
+    background-image: url('{% static "images/cust_login.png" %}');
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed; 
+    color: #000;
+  
+  }
+
+  #cr{
+    float: right;
+    margin-top: 25px;
+    margin-right: 15%;
+    
+  }
+
+ 
+
+
+</style>
+
+{% endblock css %}
+
+
+{% block body %}
+
+<div class="container shadow-lg mt-1 text-center" id="cr">
+  <h1> Create Your Account </h1>
+</div>
+
+<div class="container col-6 card mx-auto p-4 shadow-lg" id="cr">
+
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% if messages %}
+        {{message.tags}}
+      <div class="alert alert-primary" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        </div>
+        {% endif %}
+
+    <table>
+      <tr>
+        {{f.as_table}}
+      </tr>
+    </table>
+    
+    <button type="submit" class="btn btn-outline-success">Signup</button>  &nbsp;
+    <button type="reset" class="btn btn-outline-danger">Reset</button> 
+
+    <br><br>
+    
+    <p>Already have an account <a href="{% url 'customer_login' %}">Signin</a></p>
+    
+    </form>
+  </div>
+    
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock body %}

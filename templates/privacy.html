@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title>Privacy Policy</title> {% endblock %}
+
+{% block css %}
+
+<style>
+
+body{
+        background-image: url('{% static "images/bg-s.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(221, 107, 107, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+       
+    }
+
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #000;
+    }
+
+   strong{
+        color:darkmagenta;
+    }
+
+    #privacy {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    p,li{
+        color: #000;
+        font-size: large;
+        
+    }
+
+    span{
+        color: blue;
+    }
+   
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container shadow-lg mt-3 text-center" id="privacy">
+    <h1>Privacy Policy</h1>
+</div>
+
+<br> <br>
+
+<div class="container shadow-lg mt-3" id="privacy" style="width: max-content; background-color: rgba(228, 228, 228, 0.432);">
+    
+    <p><strong>SECURITY:</strong></p>
+    <p>Ace Cabs will never sell, trade, share or disclose the client’s information to third party, derived from the queries, booking, or purchasing or from website  <br> without the consent of the client or customer or user. 
+        <br> We fully honor the privacy of our clients.To prevent unauthorized access or disclosure we have put in place appropriate physical, electronic and 
+        <br> administrative processes to safeguard and protect the information we collect online.</p>
+
+
+  
+    <p><strong>CONTACT US REFUND POLICY:</strong></p>
+    <p>Using <a href="{% url 'contact_view' %}">  <span> CONTACT US </span> </a> link on home page, provide your feedback and suggestions. Thank you. ace cabs will be always there to serve you.</p>
+
+
+</div> 
+
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %} 

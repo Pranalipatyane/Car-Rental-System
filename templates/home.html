@@ -1,0 +1,429 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Rent Cars </title> {% endblock %}
+
+{% block css %}
+
+<style>
+
+
+body{
+  background-image: url('{% static "images/bg.jpg" %}');
+  background-size: 1800px 900px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-attachment: fixed; 
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border:1px solid rgba(224, 63, 63, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      
+
+}
+
+/* About */
+
+h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#info{
+  text-align: center;
+}
+
+strong{
+  color:crimson;
+}
+
+.about-content {
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+}
+.about-content #side-text{
+  width: 520px;
+  height: 340px;
+  color: white;
+  padding: 50px 40px;
+  background: #000;
+  box-shadow: 2px 0 100px hwb(0 99% 1% / 0.3);
+  border-radius: 5px;
+  text-align: justify;
+  line-height: 22px;
+}
+.about-content #side-text h2{
+  padding: 10px;
+}
+.about-content .side-image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  box-shadow: 2px 0 100px rgba(172, 99, 99, 0.5);
+}
+h1{
+color: chocolate;
+}
+
+#side-text #info{
+color: #fff;
+}
+
+.about {
+margin-left: 50px;
+padding: 5px 20px;
+border: 2px solid #DF2771;
+border-radius: 20px;
+text-decoration: none;
+
+transition: .5s;
+background-color: #DF2771;
+color: #fff;
+
+}
+.about:hover {
+color: #2e2e2e;
+background: #fff;
+}
+
+.side-image img:hover{
+transform: scale(1.3,1.3);
+transition: .3s transform;
+box-shadow: #DF2771;
+}
+
+/* About End */
+
+
+/* available cars */
+
+#all-car{
+  background-color: rgba(211, 202, 202, 0.5);
+}
+
+#card-title{
+  text-align: center;
+}
+#card{
+  background-color: #f1f7f7;
+}
+
+#card-img:hover{
+  transform: scale(1.1,1.1);
+  transition: .3s transform;
+  box-shadow: #DF2771;
+}
+
+/* end avialable cars */
+
+
+
+/* best */
+
+#best{
+ background-color: #000;
+}
+
+#para{
+  color: #fff;
+  text-align: center;
+}
+
+/* best end */
+
+
+/* brands */
+
+#brands img{
+margin-right: 60px;
+
+}
+#brands img:hover{
+transform: scale(1.5,1.5);
+transition: .3s transform;
+box-shadow: #DF2771;
+}
+
+/* brands end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* brands */
+/*
+.brands{
+background: linear-gradient(135deg, rgba(7, 7, 7, 0.1), rgba(3, 3, 3, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border:1px solid rgba(224, 63, 63, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(212, 156, 156, 0.37);
+
+}
+
+.brands h1{
+text-align: center;
+color: #000;
+font-weight: bold;
+}
+*/
+
+/* brands end */
+
+/*
+#heading{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: large;
+  font-weight: bold;
+  transform: scale(1.3,1.3);
+  text-align: center;
+}
+.details{
+  text-align: center;
+  font-size: large;
+}
+
+------------------------
+
+.image-container {
+    width: 100%;
+    overflow: hidden; 
+    border-radius: 50px;
+}
+
+.image-gallery {
+    display: flex;
+    animation: scroll 15s linear infinite; 
+
+}
+
+.image-gallery img {
+    width: 300px; 
+    height: auto; 
+    margin-right: 20px; 
+    border-radius: 50px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+*/
+
+
+
+
+
+
+
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+
+
+
+{% include 'topbar.html' %}
+
+
+<!------------------------------------------------------------------------------------------->
+
+<!-- carousel -->
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/s1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/s2.png' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/s3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+
+
+<br><br><br><br>
+
+
+
+<!-- About -->
+
+<div class="diffSection" id="about_section">
+  <div class="about-content">
+      <div class="side-image">
+          <img class="sideImage" src="{% static 'images/car.webp' %}" alt=""> 
+      </div>
+      <div class="side-text" id="side-text">
+        <h1>Welcome To Ace Cab</h1>
+          <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #fff;">Travel services of the highest quality</h3> 
+          <p id="info">Find the most Affordable Car Rental Service in Mumbai. We have well maintained Clean and Neat Cab. 
+            We have no. of fleets options like Tata Zest, Swift dzire, Toyota Etios, Hyundai Xcent, Renault Lodgy, 
+            Maruti Ertiga, Mahindra Zylo, Chevorlate Tavera, Toyota innova, innova Crysta, Tempo Traveller 13/17 seater, Bus/laxury buses 45+ seater/ sleeper.</p>
+
+          
+          <a class="about" href="{% url 'about' %}" style="float: right;"> About Us</a> 
+          
+      </div>   
+  </div>
+</div>
+
+<br><br>
+
+<!-- Show available cars -->
+
+
+<div class="container shadow-lg rounded-3" style="background-color: rgba(37, 35, 35, 0.432);">
+  <center>
+    <img src="{% static 'images/1.png' %}" alt="" width="400px">
+    </center>    
+</div> <br>
+
+<div class="container" id="all-car"> 
+  <div class="row"> 
+    {% for i in car %}
+      <div class="col-lg-3 mb-4"> 
+          <div class="card" id="card"> 
+              <img class="card-img-top" id="card-img" src="{{i.image.url}}" alt="" width="100px" height="150px"> 
+
+              <div class="card-body"> 
+                  <h1 class="card-title" id="card-title">{{i.car_name}}</h1><hr>
+                  
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p id="p"> City : {{i.location}}</p>
+                      <p id="p"> Status : {{i.is_available}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p id="p"> Capacity : {{i.capacity}}</p>
+                      <p id="p"> Rent : {{i.rent}}</p>
+                    </div>
+                  </div>
+                <center>
+                <a href="{% url 'customer_login' %}" class="btn btn-outline-success">Book Car</a>
+              </center>
+              </div> 
+          </div> 
+      </div> 
+      {% endfor %} 
+  </div>
+</div>
+
+<br><br><br>
+
+
+<!-- best -->
+
+<div class="container shadow-lg rounded-3" style="background-color: rgba(37, 35, 35, 0.432);">
+  <center>
+    <img src="{% static 'images/2.png' %}" alt="" width="800px">
+  </center>  
+</div>
+
+<br>
+<div class="container" id="best">
+  <div class="row shadow-lg rounded-3">
+    
+    <div class="col sm-4" id="best">
+      <br>
+      <h3 style="font-family: 'Times New Roman', Times, serif; color:white;"><img src="{% static 'icons/home 1.png' %}" alt="" height="80"> HOME PICKUP</h3>
+      <p id="para">At Ace Cab we provide Hassle free home pickup service. <br> Our Drivers will be on time at your doorstep.</p>
+      
+      <hr>
+
+      <h3 style="font-family: 'Times New Roman', Times, serif; color:white;"><img src="{% static 'icons/wifi.png' %}" alt="" height="80"> FREE WIFI</h3>
+      <p id="para">All cabs of Ace cab are Equiped with free wifi for all customers.</p>
+    </div> 
+
+    <div class="col sm-4" id="best">
+      <br>
+      <h3 style="font-family: 'Times New Roman', Times, serif; color:white;"><img src="{% static 'icons/speedometer.png' %}" alt="" height="80"> FAST BOOKING</h3>
+      <p id="para">We provide fast cab bookingservice. <br> Experience lightning fast cab booking service at Ace Cabs.</p>
+
+      <hr>
+
+      <h3 style="font-family: 'Times New Roman', Times, serif; color:white;"><img src="{% static 'icons/driver.png' %}" alt="" height="80"> EXPERT DRIVER</h3>
+      <p id="para">Our drivers are well educated and skilled to understand customers <br> need and also understand different languages.</p>
+    </div>
+  </div>
+</div>
+
+<br><br> <br><br>
+
+<!-- brands -->
+
+<div class="container shadow-lg rounded-3" style="background-color: rgba(37, 35, 35, 0.432);">
+  <center>
+    <img src="{% static 'images/3.png' %}" alt="" width="900px">
+  </center>  
+  <hr>  
+  <div class="brands" id="brands">
+  <center>
+    
+    <img src="{% static 'images/avis.gif' %}" alt="Image 1">
+    <img src="{% static 'images/alamo.gif' %}" alt="Image 2">
+    <img src="{% static 'images/europcar.gif' %}" alt="Image 3">
+    <img src="{% static 'images/sixt.gif' %}" alt="Image 4">
+    <img src="{% static 'images/budget.gif' %}" alt="Image 5">
+    <img src="{% static 'images/dollar.gif' %}" alt="Image 6"> <br><br>
+  
+  </center> 
+  </div>
+</div>
+
+
+
+<br><br>
+
+{% endblock %}
+
+
+{% block js %}
+{% endblock %}
+
+
+
+
+
+
+
+<!--
+<div class="image-container">
+  <div class="image-gallery">
+      <img src="{% static 'images/Car01.jpg' %}" alt="Image 1">
+      <img src="{% static 'images/Car02.jpg' %}" alt="Image 2">
+      <img src="{% static 'images/Car03.jpg' %}" alt="Image 3">
+      <img src="{% static 'images/Car04.jpg' %}" alt="Image 4">
+      <img src="{% static 'images/Car05.jpg' %}" alt="Image 5">
+  </div>
+</div>
+
+-->

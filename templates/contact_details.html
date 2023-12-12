@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Contact Details </title> {% endblock title %}
+
+{% block css %}
+
+<style>
+
+    
+
+body{
+        background-image: url('{% static "images/w1.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+        color: black;
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(224, 63, 63, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+ 
+    h1 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+        color: black;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    th {
+        background-color: #91665b;
+        color: white;
+    }
+
+    th,
+    td {
+        border: 2px solid #757070;
+    }
+
+
+    #contact{
+        margin-bottom: 450px;
+        background: linear-gradient(135deg, rgba(221, 224, 228, 0.1), rgba(255, 255, 255, 0));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(224, 63, 63, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+/*
+
+body{
+        background-image: url('{% static "images/w1.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+    }
+
+#sdata{
+    background-color: rgb(79, 188, 231);
+}
+#sdata:hover{
+    background-color: rgb(247,33,4);
+}
+
+#tdbd:hover{
+    background-color: rgb(221, 183, 219);
+    cursor: pointer;
+}
+
+
+.container-fluied{
+        margin-bottom:430px;
+    }
+
+
+
+*/
+
+
+    
+</style>
+
+{% endblock css %}
+
+
+
+{% block body %}
+
+&nbsp;
+
+<div class="container shadow-lg rounded-3" id="contact" style="background-color: rgba(228, 228, 228, 0.432);">
+
+    <h1 class="mt-4">Contact Details</h1> <hr>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Meassage </th>
+                <th>Delete</th>
+            </tr>
+        </thead> 
+
+        <tbody>
+            {% for contact in contact %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.message }}</td>
+
+                <td><a href="{% url 'delete_contact' contact.id %}"
+                    onclick="return confirm('Are you sure you want to delete {{contact.name}}?')"><img src="{% static 'icons/delete.png' %}" alt="" height="30"></a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No contact details available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!--
+<div class="container-fluied" style="display: flex;">
+
+<div class="card col-sm-9 mt-5 mx-auto border-dark">
+    <h1 style="text-align: center;"> Contact Details </h1>
+    
+    <table class="table border-dark">
+        <thead>
+            <tr>
+                <th scope="col" id="sdata">Name</th>
+                <th scope="col" id="sdata">Email</th>
+                <th scope="col" id="sdata">Location</th>
+                <th scope="col" id="sdata">Meassage </th>
+                <th scope="col" id="sdata">Delete</th>
+            </tr>
+        </thead> 
+
+        <tbody>
+            {% for contact in contact %}
+            <tr>
+                <td id="tdbd">{{ contact.name }}</td>
+                <td id="tdbd">{{ contact.email }}</td>
+                <td id="tdbd">{{ contact.location }}</td>
+                <td id="tdbd">{{ contact.message }}</td>
+
+                <td id="tdbd"><a href="{% url 'delete_contact' contact.id %}"
+                    onclick="return confirm('Are you sure you want to delete {{contact.name}}?')"><img src="{% static 'icons/delete.png' %}" alt="" height="30"></a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No contact details available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+-->
+
+<br>
+{% endblock %}
+
+
+{% block js %}
+
+<script>
+
+
+</script>
+
+{% endblock %}

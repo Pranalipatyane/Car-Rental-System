@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Update Booking Details</title> {% endblock title %}
+
+{% block css %}
+
+<style>
+
+body{
+        background-image: url('{% static "images/w1.jpg" %}');
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed; 
+        color:#000;
+    }
+
+    h1{
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    #ub {
+        background: linear-gradient(135deg, rgba(7, 7, 7, 0.1), rgba(3, 3, 3, 0));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(224, 63, 63, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(212, 156, 156, 0.37);
+        
+    }
+        
+
+/*
+    box-shadow: inset 0 0 90px rgba(0,0,0,0.6),
+					0 0 80px rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.4);
+*/
+
+
+   
+
+</style>
+
+
+{% endblock css %}
+
+{% block body %}
+
+<br>
+
+<div class="container shadow-lg rounded-3" id="ub"> 
+    <h1>Update Booking Details</h1>
+</div>
+&nbsp;
+
+<div class="container shadow-lg rounded-3" id="ub" style="background-color: rgba(228, 228, 228, 0.432);"> &nbsp;
+   
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+
+        <center>
+        <table>
+            <tr>
+                {{form.as_table}}
+            </tr>
+        </table>
+
+        <br><br>
+       
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="{% url 'show_booking' %}" class="btn btn-secondary">Back</a> <br><br>
+
+        </center>
+        
+    </form>
+</div>
+
+<br><br><br><br>
+
+{% endblock body %}
+
+

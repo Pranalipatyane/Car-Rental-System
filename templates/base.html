@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+<!-- css link -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
+<!-- js link -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- icon link -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+{% block title %}
+{% endblock title %}
+
+{% block css %}
+{% endblock css %}
+
+
+
+<body>
+
+    <!-- Navbar -->
+    
+    {% include 'navbar.html' %}
+
+  
+
+    {% block body %}
+    {% endblock body %}
+
+
+     
+    {% block js %}
+    {% endblock js %}
+
+</body>
+
+</html>
+
+{% include 'footer.html' %}

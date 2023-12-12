@@ -1,0 +1,482 @@
+{% load static %}
+
+
+{% block css %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+<style>
+
+
+    /*
+    .footer-basic {
+    padding:40px 0;
+    background-color:#030400;
+    color:#f3f3f6;
+    font-size: larger;
+   
+    
+    }
+    
+    .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+    }
+    
+    .footer-basic li {
+    padding:0 10px;
+    }
+    
+    .footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+    }
+    
+    .footer-basic ul a:hover {
+    opacity:1;
+    }
+    
+    .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+    }
+    
+    .footer-basic .social > a {
+        font-size:24px;
+        width:40px;
+        height:40px;
+        line-height:40px;
+        display:inline-block;
+        text-align:center;
+        margin:0 8px;
+        color:inherit;
+        opacity:0.75;
+            
+    }
+    .footer-basic .social > a:hover {
+    opacity:0.9;
+    }
+
+    .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:15px;
+    color:#aaa;
+    margin-bottom:0;
+    }
+    */
+    
+    /* Credit to https://epicbootstrap.com/snippets/footer-basic */
+
+
+
+
+
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    outline: none;
+}
+        
+a,
+a:active,
+a:focus {
+    color: #6f6f6f;
+    text-decoration: none;
+    transition-timing-function: ease-in-out;
+    -ms-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -webkit-transition-duration: .2s;
+    -o-transition-duration: .2s;
+}
+        
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    max-width: 100%;
+    
+}
+        section {
+            padding: 60px 0;
+            min-height: 100vh;
+        }
+.footer {
+    padding: 10px 0px 0px; 
+    background-color: #030a16;
+}
+
+
+.footer .widget1 p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, .6);
+    margin-top: 26px;
+}
+
+.footer .socialLinks {
+    margin-top: 28px;
+}
+
+.socialLinks ul li {
+    display: inline-block;
+}
+
+
+.socialLinks ul li a i {
+    display: block;
+    margin: 0 2px;
+    width: 40px;
+    height: 40px;
+    background: #fafafa;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 5px;
+    line-height: 40px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.socialLinks ul li a .fa-facebook-f {
+    color: #4267b2;
+}
+
+.socialLinks ul li a .fa-twitter {
+    color: #1da1f2;
+}
+
+.socialLinks ul li a .fa-google-plus-g {
+    color: #dd5044;
+}
+
+.socialLinks ul li a .fa-linkedin-in {
+    color: #0177b5;
+}
+
+
+.socialLinks ul li a:hover i {
+    color: #fff;
+}
+
+.socialLinks ul li a:hover .fa-facebook-f {
+    background: #4267b2;
+}
+
+.socialLinks ul li a:hover .fa-twitter {
+    background: #1da1f2;
+}
+
+.socialLinks ul li a:hover .fa-google-plus-g {
+    background: #dd5044;
+}
+
+.socialLinks ul li a:hover .fa-linkedin-in {
+    background: #0177b5;
+}
+footer .logo {
+    max-width: 200px;
+}
+
+.footer h5 {
+    font-weight: 500;
+    margin-bottom: 28px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: #fff;
+    font-size: 21px
+}
+
+.footer .widget2 .media img {
+    margin-right: 20px;
+    max-width: 100px;
+}
+.footer .widget2 .media p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, .8);;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+.footer .widget2 span {
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: block;
+}
+
+.footer .widget2 .media .img-fluid {
+     /* margin-bottom: 30px; */
+    
+    width: 350px;
+    height: 50px;
+    
+    
+}
+
+.footer .widget3 ul li a{
+    font-size: 16px;
+    color: rgba(228, 228, 228, 0.6);
+    text-transform: capitalize;
+    margin-bottom: 13px;
+    display: block;
+}
+
+.footer .widget4 ul p{
+    font-size: 16px;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 13px;
+    display: block;
+}
+.footer .widget3 ul li a:hover,
+.footer .widget4 ul li a:hover,
+.footer .widget2 a:hover p {
+    color: #ffb606;
+}
+
+.footer .widget3 h5 {
+    margin-bottom: 22px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 21px;
+    line-height: 32px;
+}
+
+.footer .widget4 h5 {
+    margin-bottom: 22px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 21px;
+}
+
+.copyRightArea {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 5px 0px 2px;
+}
+
+.copyRightArea p {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="widget1">
+                    <div class="logo">
+                        <img src="{% static 'images/ace-w.png' %}" class="img-fluid" alt="" height="60px" width="100%">
+                    </div>
+                    <p>
+                        Find the most Affordable Car Rental Service in Mumbai. 
+                        We have well maintained Clean and Neat Cab.
+                      
+                    </p>
+                    <div class="socialLinks">
+                        <ul>
+                            <li>
+                                <a href="https://business.facebook.com/login/web/">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/login?lang=en">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://accounts.google.com/">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="widget2">
+                    <h5>
+                        Latest News
+                    </h5>
+                    <p> <span> ACE is part of Booking Holdings Inc., the world leader in online travel & related services. </span> </p>
+                    <div class="media">
+                        <img class="img-fluid" src="{% static 'images/logo-booking.svg' %}" alt="" height="100px">  <br>
+                        <img class="img-fluid" src="{% static 'images/rental.png' %}" alt=""> <br>
+                      
+                    </div>
+                   
+                </div>
+            </div> 
+
+
+            <div class="col-sm-6 col-lg-2">
+                <div class="widget3">
+                    <h5>
+                        Quick Links
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="{% url 'home' %}">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'about' %}">
+                                about
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'service' %}">
+                                service
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'terms' %}">
+                                terms
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'privacy' %}">
+                                privacy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact_view' %}">
+                                contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2">
+                <div class="widget4">
+                    <h5>
+                        Visit us at
+                    </h5>
+                    <ul>
+                        <p><i class="bi bi-geo-alt"></i> Deshmukh Building,Nearby Shanti
+                            Nagar, Mumbai - 411061.
+                        </p> <br>
+                       <p><i class="bi bi-telephone"></i>  +91 9588463277</p> <br>
+                       <p> <i class="bi bi-envelope"></i>  acecabs@gmail.com</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyRightArea">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p> copyright © 2023 Ace cabs . All Rights Reserved | Developed by Pranali Patyane. </a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+<!--
+
+<div class="footer-basic">
+    
+    <footer class="bg-dark text-center text-white mb-0" style="bottom: 0; left: 0; right: 0;"> 
+    <hr>
+    
+    <div class="social">
+    <a href="https://www.instagram.com/accounts/login/?hl=en"><img src="{% static 'icons/insta.png' %}" alt=""></a>
+    <a href="https://business.facebook.com/login/web/"><img src="{% static 'icons/fb.png' %}" alt=""></a>
+    <a href="https://twitter.com/login?lang=en"><img src="{% static 'icons/tt.png' %}" alt=""></a>
+    <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Faccount%26feature%3Dredirect_login&hl=en&ifkv=AYZoVhfGMT_ZkmxnRyB8iqYpw48UH5J38zV1ghsN2NvBIE7f0de-k9y8tIENhPkIdiEWfCNTua2lwg&passive=true&service=youtube&uilel=3&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1090108229%3A1696430480406175&theme=glif">
+        <img src="{% static 'icons/ytube.png' %}" alt=""></a>
+    </div>
+    <ul class="list-inline">
+    <li class="list-inline-item"><a href="/"><b>Home</b></a></li>
+    <li class="list-inline-item"><a href="{% url 'about' %}"><b>About</b></a></li>
+    <li class="list-inline-item"><a href="{% url 'service' %}"><b>Services</b></a></li>
+    <li class="list-inline-item"><a href="{% url 'terms' %}"><b>Terms</b></a></li>
+    <li class="list-inline-item"><a href="{% url 'privacy' %}"><b>Privacy Policy</b></a></li>
+    <li class="list-inline-item"><a href="{% url 'contact_view' %}"><b>Contact</b></a></li>
+    </ul>
+    <p class="copyright"> copyright © 2023 Ace cabs . All Rights Reserved | Developed by Pranali Patyane </p>
+    <hr>
+    </footer>
+</div>
+
+-->

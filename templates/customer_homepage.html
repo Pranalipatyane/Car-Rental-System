@@ -1,0 +1,380 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title> Customer HomePage </title> {% endblock %}
+
+{% block css %}
+
+<style>
+
+  body{
+    background-image: url('{% static "images/w1.jpg" %}');
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed; 
+    color: black;
+/*
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(212, 156, 156, 0.37);
+    */
+  }
+  
+
+  #home{
+    margin-top: 3%;
+
+  }
+
+  h1,h4{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  #info{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+  }
+
+  
+/* search  */
+
+
+span{
+    color: crimson;
+  }
+
+
+#home{
+    background: linear-gradient(135deg, rgba(7, 7, 7, 0.1), rgba(3, 3, 3, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(212, 156, 156, 0.37);
+}
+
+.btn{
+  color: #212121;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  
+}
+
+.btn:hover {
+  outline: 2px solid #d18e8e;
+  background: transparent;
+  color: #290e0e;
+  background: #e8e8e8;
+}
+
+.btn:active {
+  box-shadow: none;
+}
+
+/* search end */
+
+
+
+ 
+  .card{
+  box-shadow: 7px 7px;
+}
+
+  .card-title{
+    color: chocolate;
+  }
+ 
+
+/* cards */
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(46, 12, 12, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.content .heading {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.content .para {
+  line-height: 1.5;
+}
+.content .btn {
+  color: #e8e8e8;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.card:hover::before {
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+.card:hover .btn {
+  color: #212121;
+  background: #e8e8e8;
+}
+.content .btn:hover {
+  outline: 2px solid #d18e8e;
+  background: transparent;
+  color: #290e0e;
+}
+
+.content .btn:active {
+  box-shadow: none;
+}
+
+/* cards end */
+
+
+
+#card{
+  background-color: #ffffff;
+}
+#heading{
+  text-align: center;
+  font-size: 23px;
+}
+.details{
+  text-align: center;
+  font-size: large;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+
+<br><br><br>
+
+<!-- Search Car -->
+
+<div class="container shadow-lg p-4 rounded" style="width: 70%; margin: auto; background-color: rgba(228, 228, 228, 0.432);" id="home">
+
+  <div class="container">
+    <div class="p-5 shadow-rounded-3">
+      <div class="container-fluid">
+        <h1 class="display-5 fw-bold">Welcome <span>{{user.first_name}} </span> to Ace Car Rental System</h1> <br>
+        <h4>Find The Right Car For You</h4>
+        <p class="col-md-8 fs-5" id="info">We have more than a thousand cars for you to choose</p>
+        <hr>
+        <p class="col-md-8 fs-5" id="info">You can enter car name/city name below and see the list of available cars.</p>
+      </div>
+      <br>
+
+      <center>
+      <form class="d-flex" role="search" action="{% url 'search' %}" method="get" style="width: 50%; height: 60px;">
+        {% csrf_token %}
+        <input class="form-control me-2" name="query" type="search" placeholder="Enter Car / City Name" style="font-size:x-large;">
+        <button class="btn" type="submit" style="font-size: larger;"> <b>Search</b></button>
+      </form> 
+      </center>
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+
+
+
+<div class="container shadow-lg rounded-3" id="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card" id="card">
+        <div class="content"> 
+          <h1 class="heading" id="heading">Pick Location & Date</h1>
+          <p class="details">
+            Pick your ideal location and date, and let us take you on a journey filled with convenience, flexibility, and unforgettable experiences.
+          </p>
+        </div> 
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card" id="card">
+        <div class="content"> 
+          <h1 class="heading" id="heading">Make a Booking</h1> 
+          <p class="details">
+            Secure your reservation with ease, unlocking a world of possibilities and embarking on your next adventure with confidence.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card" id="card">
+        <div class="content">
+          <h1 class="heading" id="heading">Sit Back & Relax</h1> 
+          <p class="details">
+            Hassle-free convenience as we take care of every detail, allowing you to unwind and embrace a journey filled comfort.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+
+
+<!-- Best Packages -->
+
+<div class="container shadow-lg rounded-3 text-center">
+  <h1 style="font-weight: bold;"> Best Packages </h1>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="content">
+          <p class="heading">Mumbai To Adlabs Imagica</p>
+          <p class="para">
+            Embark on a day filled with adventure and excitement by visiting Adlabs Imagica in Pune. 
+            It is divided into three parks which are a theme park, water park and snow park.
+          </p>
+          <a href="{% url 'imagica' %}" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="content">
+          <p class="heading">Mumbai To Pune</p>
+          <p class="para">
+            Pune is a sprawling city in the western Indian state of Maharashtra. 
+            It was once the base of the Peshwas (prime ministers) of the Maratha Empire, 
+            which lasted from 1674 to 1818.
+          </p>
+          <a href="{% url 'pune' %}" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="content">
+          <p class="heading">Mumbai To Lavasa</p>
+          <p class="para">
+            Lavasa is a private, planned city built near Pune, India. 
+            It is stylistically based on the Italian town Portofino, 
+            with a street and several buildings bearing the name of that town.
+          </p>
+          <a href="{% url 'lavasa' %}" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="content">
+          <p class="heading">Mumbai To Lonavala</p>
+          <p class="para">
+            Lonavala is a hill station surrounded by green valleys in western India near Mumbai. 
+            The Karla Caves and the Bhaja Caves are ancient Buddhist shrines carved out of the rock. 
+          </p>
+          <a href="{% url 'lonavala' %}" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+{% endblock %}

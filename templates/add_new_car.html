@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title>Add cars</title> {% endblock title %}
+
+
+{% block css %}
+
+<style>
+
+
+  body{
+    background-image: url('{% static "images/w1.jpg" %}');
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed; 
+    color: #000;
+      
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        
+  }
+
+  #add{
+    margin-top: 70px;
+    margin-bottom: 100px;
+    font-size: x-large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+  }
+
+  h1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+    text-align: center;
+    color: #000;
+  }
+  #add {
+   
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(224, 63, 63, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(241, 241, 241, 0.37);
+    color: #fff;
+}
+
+
+</style>
+
+{% endblock css %}
+
+
+{% block body %}
+
+<br>
+
+<div class="container col-6 bg-transparent" id="add">
+  <h1>Add New Car</h1>
+
+  <hr>
+
+    <!--
+    <label for="{{ form.cat.id_for_label }}">Category:</label>
+    <select name="{{ form.cat.name }}">
+      {% for category in form.cat.field.queryset %}
+          <option value="{{ category.pk }}">{{ category.car_name }}</option>
+      {% endfor %}
+    </select>
+  -->
+    
+    <form action="" method="POST" enctype="multipart/form-data" style="max-height: max-content;  background-color: rgba(0, 0, 0, 0.432);"> <br>
+      {% csrf_token %}
+
+      <table style="margin-left: 100px;">
+        <tr>
+          
+            {{form.as_table}}
+          
+        </tr>
+      </table> 
+      &nbsp;
+
+      <center>
+        <input type="submit" value="Add Car" class="btn btn-success">  &nbsp;
+        <input type="reset" value="Reset" class="btn btn-danger">
+      </center>
+      <br>
+
+    </form>
+</div>
+  
+
+{% endblock body %}
