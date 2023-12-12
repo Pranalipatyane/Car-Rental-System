@@ -22,4 +22,6 @@ create superuser :
 
     python manage.py createsuperuser
   
-To run the server: python manage.py runserver
+To run the server: 
+    
+    python manage.py runserver
